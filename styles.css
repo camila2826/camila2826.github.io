@@ -1,0 +1,205 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #1a1a2e;
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.container {
+    display: flex;
+    flex: 1;
+    position: relative;
+    z-index: 1;
+}
+.sidebar {
+    width: 250px;
+    background-color: rgba(45, 55, 72, 0.8); /* gray-800 with transparency */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    position: fixed; /* Make sidebar fixed */
+    top: 0;
+    left: 0;
+    bottom: 0;
+    transition: transform 0.3s ease; /* Add transition for smooth slide */
+}
+.sidebar.closed {
+    transform: translateX(-100%); /* Slide sidebar out of view */
+}
+.sidebar img {
+    border-radius: 50%;
+    border: 2px solid #00adb5; /* Smaller border */
+    width: 150px;
+    height: 200px;
+}
+.sidebar h2 {
+    margin: 10px 0 5px;
+    font-size: 20px;
+    text-align: center;
+}
+.sidebar p {
+    margin: 0;
+    font-size: 14px;
+    color: #00adb5;
+    text-align: center;
+}
+.sidebar .social-icons {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+.sidebar .social-icons a {
+    color: #00adb5;
+    margin: 0 5px;
+    font-size: 18px;
+}
+.sidebar .menu {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Align menu items closer to the top */
+    flex: 1;
+}
+.sidebar .menu .menu-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 5px 0;
+    background-color: rgba(45, 55, 72, 0.8); /* gray-800 with transparency */
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+}
+.sidebar .menu .menu-item:hover, .sidebar .menu .menu-item.active {
+    background-color: #00adb5;
+}
+.sidebar .menu .menu-item i {
+    margin-right: 10px;
+}
+.content {
+    flex: 1;
+    padding: 20px;
+    margin-left: 300px; /* Add margin to the left to make space for the fixed sidebar */
+    overflow-y: auto; /* Add vertical scroll */
+    transition: margin-left 0.3s ease; /* Add transition for smooth slide */
+}
+.content.full-width {
+    margin-left: 30px; /* Add margin to the left when sidebar is closed */
+}
+.header {
+    display: flex;
+    align-items: center;
+    background-color: rgba(74, 85, 104, 0.8); /* lighter gray-800 with transparency */
+    padding: 20px;
+    border-radius: 5px; /* Smaller border radius */
+    margin-bottom: 20px;
+    height: 500px; /* Increased height */
+    justify-content: center; /* Center the content */
+}
+.header img {
+    border-radius: 50%;
+    border: 2px solid #00adb5; /* Smaller border */
+    width: 300px; /* Increased width */
+    height: 400px; /* Increased height */
+    margin-left: 20px; /* Added margin to the left */
+}
+.header h1 {
+    margin: 0;
+    font-size: 28px; /* Increased font size */
+    margin-right: 20px; /* Added margin to the right */
+}
+.header p {
+    margin: 5px 0 0;
+    font-size: 18px; /* Increased font size */
+    color: #00adb5;
+}
+.section {
+    background-color: rgba(74, 85, 104, 0.8); /* lighter gray-800 with transparency */
+    padding: 20px;
+    border-radius: 5px; /* Smaller border radius */
+    margin-bottom: 20px;
+}
+.section h2 {
+    margin: 0 0 10px;
+    font-size: 20px;
+}
+.section p {
+    margin: 0;
+    font-size: 16px;
+}
+.toggle-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #00adb5;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 2; /* Ensure button is above other elements */
+}
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 10px;
+    }
+    .sidebar img {
+        width: 80px;
+        height: 80px;
+    }
+    .sidebar h2 {
+        font-size: 18px;
+    }
+    .sidebar p {
+        font-size: 12px;
+    }
+    .sidebar .menu {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .sidebar .menu .menu-item {
+        width: auto;
+        margin: 5px;
+        padding: 10px;
+    }
+    .content {
+        margin-left: 0;
+        padding: 10px;
+    }
+    .header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        height: auto;
+    }
+    .header img {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+    .header h1 {
+        font-size: 24px;
+        margin-right: 0; /* Remove right margin */
+    }
+    .header p {
+        font-size: 16px;
+    }
+}
